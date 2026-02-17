@@ -15,12 +15,17 @@ const config: Config = {
         muted: "var(--muted)",
         copper: "var(--copper)",
         copper2: "var(--copper2)",
+        amber: "var(--amber)",
+        amber2: "var(--amber2)",
+        terra: "var(--terra)",
+        charcoal: "var(--charcoal)",
       },
 
       fontFamily: {
         display: "var(--font-display)",
         ui: "var(--font-ui)",
         body: "var(--font-body)",
+        mono: "var(--font-mono)",
       },
 
       transitionTimingFunction: {

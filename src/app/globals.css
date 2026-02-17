@@ -9,6 +9,10 @@
   --muted: #8a8070;
   --copper: #b5651d;
   --copper2: #e07b39;
+  --amber: #e8a020;
+  --amber2: #c8841a;
+  --terra: #c0522a;
+  --charcoal: #1c1a16;
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -22,10 +26,15 @@
   --color-muted: var(--muted);
   --color-copper: var(--copper);
   --color-copper2: var(--copper2);
+  --color-amber: var(--amber);
+  --color-amber2: var(--amber2);
+  --color-terra: var(--terra);
+  --color-charcoal: var(--charcoal);
 
   --font-display: var(--font-display);
   --font-ui: var(--font-ui);
   --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
 
   --ease-smooth: var(--ease);
 }
@@ -35,4 +44,63 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   cursor: none;
+}
+.cursor-outer {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1.5px solid var(--amber);
+  border-radius: 50%;
+
+  top: 0;
+  left: 0;
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.cursor-inner {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+
+  width: 4px;
+  height: 4px;
+
+  background: var(--amber);
+  border-radius: 50%;
+
+  top: 0;
+  left: 0;
+
+  transform: translate(-50%, -50%);
+
+  opacity: 0.8;
+}
+
+.cursor-outer,
+.cursor-inner {
+  opacity: 0;
+}
+
+body:has(a:hover) .cursor-outer,
+body:has(button:hover) .cursor-outer {
+  width: 52px;
+  height: 52px;
+  border-color: var(--terra);
+}
+
+body:has(a:hover) .cursor-inner,
+body:has(button:hover) .cursor-inner {
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0.6;
 }

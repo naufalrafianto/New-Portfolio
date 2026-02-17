@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Playfair_Display, Syne, Lora } from "next/font/google"
+import { Playfair_Display, Syne, Lora, IBM_Plex_Mono } from "next/font/google"
 import Cursor from "@/components/ui/Cursor";
+import Sidebar from "@/components/layout/Sidebar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,6 +24,12 @@ const lora = Lora({
   variable: "--font-body",
 })
 
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ['400']
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,10 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${playfair.variable} ${syne.variable} ${lora.variable}`}
+      className={`${playfair.variable} ${syne.variable} ${lora.variable} ${mono.variable}`}
     >
       <body>
         <Cursor />
+        <Sidebar />
         {children}
       </body>
     </html>
